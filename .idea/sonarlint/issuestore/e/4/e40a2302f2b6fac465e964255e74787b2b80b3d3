@@ -1,0 +1,16 @@
+
+c
+java:S1192r"GDefine a constant instead of duplicating this literal "nombre" 3 times.(¸™€O8ëöë¹À1
+{
+java:S1192B"^Define a constant instead of duplicating this literal "https://reqres.in/api/users/2" 3 times.(ù¡¯Ô8íöë¹À1
+l
+java:S1192s"JDefine a constant instead of duplicating this literal "apellidos" 3 times.(¨åÑ¸üÿÿÿÿ8íöë¹À1
+d
+java:S1192r"HDefine a constant instead of duplicating this literal "Perrino" 3 times.(¸™€O8îöë¹À1
+s
+java:S1192s"QDefine a constant instead of duplicating this literal "GarcÃ­a Ladrillo" 3 times.(¨åÑ¸üÿÿÿÿ8îöë¹À1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Œ‡ÇÕÿÿÿÿÿ8óöë¹À1
+L	java:S106"+Replace this use of System.out by a logger.(ß¬²øÿÿÿÿ8¡÷ë¹À1
+L	java:S106"+Replace this use of System.out by a logger.(¢Ö›ıÿÿÿÿ8¤÷ë¹À1
+W	java:S125""<This block of commented-out lines of code should be removed.(¹œˆ%8­÷ë¹À1
+M	java:S106Š"+Replace this use of System.out by a logger.(½ÒŸÿşÿÿÿÿ8Û÷ë¹À1

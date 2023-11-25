@@ -1,0 +1,9 @@
+
+Y
+)src/main/java/practica_cucumber/Main.java,b\8\b8994a4ad4390ce74ea86e5b2bff8931276d9181
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+Y
+)src/test/java/ApiTests/GETMethodTest.java,e\4\e40a2302f2b6fac465e964255e74787b2b80b3d3
+d
+4src/test/java/schemaValidation/SchemaValidation.java,0\c\0c329260690fdc47f624c3631e1bc9bfc9dadb9d
