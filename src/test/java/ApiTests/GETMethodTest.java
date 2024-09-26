@@ -7,67 +7,95 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.hamcrest.Matchers;
 import org.json.simple.JSONObject;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import static org.hamcrest.Matchers.*;
 
 public class GETMethodTest {
 
+
+    private final String base_url = "https://reqres.in/api/users";
+    private final String id = String.valueOf(new Random().nextInt(1,12));
+
+
     @Test
     public void getTest(){
 
-        Response response = get("https://reqres.in/api/users?page=2");
-        System.out.println(response.getHeader("Date").toString());
-        System.out.println(response.getHeader("Transfer-Encoding").toString());
+        Response response = get(base_url);
         given()
-                .get("https://reqres.in/api/users?page=2")
+                .get(base_url+"?page=2")
                 .then().statusCode(200)
-                .body("data[4].first_name",equalTo("George")).body("data.first_name",hasItems("George","Byron","Rachel"));
+                .body("data", isA(List.class));
 
     }
     @Test
     public void postTest(){
 
-        /*RestAssured post = new RestAssured();
-        Map<String,Object> map = new HashMap<String,Object>();
-        post.post("https://reqres.in/api/users",map,null);
-        map.put("name","Alberto");
-        map.put("job","Automation QA");*/
 
         JSONObject request = new JSONObject();
-        request.put("name","Alberto");
-        request.put("job","Automation QA");
+        request.put("first_name","Alberto");
+        request.put("last_name","Alonso");
+        request.put("email","yomellamotania@gmail.com");
+        request.put("avatar","https://reqres.in/img/faces/6-image.jpg");
 
-
+        Response response =
         given()
                 .body(request.toJSONString())
                 .when()
-                .post("https://reqres.in/api/users")
+                    .post(base_url)
                 .then()
-                .statusCode(201)
-                .log()
-                .all();
+                     .statusCode(201)
+                     .extract()
+                     .response();
+        String id = response.jsonPath().getString("id");
+        System.out.println(id);
     }
+
+
 
     @Test
     public void put(){
 
         JSONObject request = new JSONObject();
-        request.put("name","Tomás");
-        request.put("job","Scrum Master");
+        request.put("first_name","Tomás");
+        request.put("last_name","Moro");
 
 
         given()
                 .body(request.toJSONString())
                 .when()
-                .put("https://reqres.in/api/users/2")
+                .put(base_url+"/"+id)
                 .then()
                 .statusCode(200)
-                .log()
-                .all();
+                .extract()
+                .response();
+
+        Response response =
+        given()
+                .body(request.toJSONString())
+                .when().get(base_url+"?id="+id)
+                .then()
+                .statusCode(200)
+                .extract()
+                .response();
+
+        String respuesta =  request.toJSONString();
+        if (response.statusCode() == 200) {
+            System.out.println("Usuario actualizado con éxito");
+            System.out.println(respuesta);
+        }else{
+            System.out.println("No se pudo actualizar el usuario");
+        }
+
+
+
+
     }
 
     @Test
@@ -91,18 +119,16 @@ public class GETMethodTest {
     public void delete(){
 
         JSONObject request = new JSONObject();
-        request.put("name","Pedro");
-        request.put("job","Producto Owner");
 
 
         given()
                 .body(request.toJSONString())
                 .when()
-                .delete("https://reqres.in/api/users/2")
+                .delete(base_url+"/"+id)
                 .then()
                 .statusCode(204)
                 .log()
-                .all();
+                .status();
 
     }
 

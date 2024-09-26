@@ -1,2 +1,3 @@
 
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(İËâÁÿÿÿÿÿ8õë¹À1
+²
+java:S3577"Rename class "SchemaValidation" to match the regular expression: '^((Test|IT)[a-zA-Z0-9_]+|[A-Z][a-zA-Z0-9_]*(Test|Tests|TestCase|IT|ITCase))$'(ÂÙ¯úÿÿÿÿ8áúÃŠÁ1
